@@ -17,11 +17,33 @@ const elementFactory = (html, css) => {
 }
 
 //All basic html elements
-const header = elementFactory('header', 'header');
-const nav = elementFactory('nav', 'nav');
-const main = elementFactory('div', 'main');
-const footer = elementFactory('footer', 'footer');
+const makeContent = (()=>{
+    const header = elementFactory('header', 'header');
+    const nav = elementFactory('nav', 'nav');
+    const btnCt = elementFactory('div', 'btnCt')
+        const btnHome = elementFactory('button', 'Btn');
+        const btnMenu = elementFactory('button', 'Btn');
+        const btnAbout = elementFactory('button', 'Btn');
+    const main = elementFactory('div', 'main');
+    const footer = elementFactory('footer', 'footer');
+return{
+    header,
+    nav,
+    btnAbout,
+    btnHome,
+    btnMenu,
+    main,
+    footer,
+    btnCt
+}
+})()
 
-//Text contents
-header.textContent = 'Smokehouse BBQ';
-footer.textContent = '© 2022 doctype-Melvin'
+
+//Element edits
+makeContent.nav.append(makeContent.btnCt)
+makeContent.btnCt.append(makeContent.btnHome, makeContent.btnMenu, makeContent.btnAbout) //Creates buttons in nav element
+makeContent.btnHome.textContent = 'HOME';
+makeContent.btnMenu.textContent = 'MENU';
+makeContent.btnAbout.textContent = 'ABOUT'
+makeContent.header.textContent = 'Smokehouse BBQ';
+makeContent.footer.textContent = '© 2022 doctype-Melvin'

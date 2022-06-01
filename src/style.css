@@ -12,15 +12,36 @@ html, body {
 }
 
 .header{
-    font-size: 3rem;
-}
-
-.header, .nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 3rem;
 }
 
+.nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;   
+}
+
+.btnCt {
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Btn {
+    width: fit-content;
+    background: none;
+    border: none;
+    font-size: 1.15rem;
+}
+
+.Btn:hover{
+    border-bottom: solid 1px black;
+    cursor: pointer;
+}
 .main {
     background-image: url(./pexels-erik-mclean-4061451.jpg);
     background-repeat: no-repeat;
