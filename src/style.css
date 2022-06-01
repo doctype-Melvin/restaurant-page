@@ -7,7 +7,7 @@ html, body {
 #content {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 2fr 1fr 5fr 1fr;
+    grid-template-rows: 1fr 1fr 5fr 1fr;
     height: 100vh;
 }
 
@@ -36,6 +36,7 @@ html, body {
     width: fit-content;
     background: none;
     border: solid 1px white;
+    font-size: 1.15rem;
 }
 
 .Btn:hover{
@@ -43,7 +44,7 @@ html, body {
     cursor: pointer;
 }
 .main {
-    background-image: url(./pexels-erik-mclean-4061451.jpg);
+    background-image: url(./emerson-vieira-3wzps8KbdCQ-unsplash.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
@@ -56,19 +57,27 @@ html, body {
 
 .modal {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 10px 15px;
     border-radius: 5px;
     text-align: center;
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.modalText, .Btn {
-    font-size: 1.15rem;
+.modalText {
+    font-size: 1.5rem;
+    max-width: 66%;
+    text-align: justify;
 }
 
 .footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }

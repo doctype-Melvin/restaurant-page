@@ -1,4 +1,5 @@
 import './style.css'
+import { makeAbout } from './about';
 
 //Creates the CSS grid
 const pageGrid = (() => {
@@ -21,27 +22,27 @@ const makeContent = (()=>{
     const header = elementFactory('header', 'header');
     const nav = elementFactory('nav', 'nav');
     const btnCt = elementFactory('div', 'btnCt')
-        const btnHome = elementFactory('button', 'Btn');
-        const btnMenu = elementFactory('button', 'Btn');
-        const btnAbout = elementFactory('button', 'Btn');
+    const btnHome = elementFactory('button', 'Btn');
+    const btnMenu = elementFactory('button', 'Btn');
+    const btnAbout = elementFactory('button', 'Btn');
     const main = elementFactory('div', 'main');
-        const modal = elementFactory('div', 'modal');
-        const modalH = elementFactory('h1', 'modalHeader');
-        const modalP = elementFactory('p', 'modalText')
+    const modal = elementFactory('div', 'modal');
+    const modalH = elementFactory('h1', 'modalHeader');
+    const modalP = elementFactory('p', 'modalText')
     const footer = elementFactory('footer', 'footer');
-return{
-    header,
-    nav,
-    btnAbout,
-    btnHome,
-    btnMenu,
-    main,
-    footer,
-    btnCt,
-    modal,
-    modalH,
-    modalP
-}
+    return{
+        header,
+        nav,
+        btnAbout,
+        btnHome,
+        btnMenu,
+        main,
+        footer,
+        btnCt,
+        modal,
+        modalH,
+        modalP
+    }
 })()
 
 
@@ -54,6 +55,30 @@ makeContent.btnMenu.textContent = 'MENU';
 makeContent.btnAbout.textContent = 'ABOUT';
 makeContent.main.append(makeContent.modal);
 makeContent.modal.append(makeContent.modalH, makeContent.modalP);
-makeContent.modalH.textContent = 'The highest quality BBQ Meat in all of Otter Tail MN';
-makeContent.modalP.textContent = 'Come visit us and enjoy our flavorful and juicy flame grilled Beef, Bison, Chicken and Fish.'
+let homeH = 'The highest quality BBQ Meat in all of Otter Tail MN'
+makeContent.modalH.textContent = homeH;
+let homeP = `Come visit us and enjoy our flavorful 
+and juicy flame grilled Beef, Bison, Chicken and Fish.
+Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Voluptate quam voluptas porro, nesciunt adipisci tenetur,
+repudiandae perferendis quos deserunt autem fugiat, 
+molestias nisi accusamus tempora.
+`
+makeContent.modalP.textContent = homeP;
 makeContent.footer.textContent = '© 2022 doctype-Melvin'
+
+//Add eventlistener to window
+window.addEventListener('click', e => {
+    switch(e.target.textContent){
+        case 'ABOUT': makeContent.modalH.textContent = makeAbout.aboutH;
+        makeContent.modalP.textContent = makeAbout.aboutP;
+        break;
+        case 'HOME': makeContent.modalH.textContent = homeH;
+        makeContent.modalP.textContent = homeP;
+        break;
+        //Add case 'MENU'
+
+    }
+})
+
+export {makeContent, elementFactory}
