@@ -1,5 +1,6 @@
 import './style.css'
 import { makeAbout } from './about';
+import {menu} from './menu';
 
 //Creates the CSS grid
 const pageGrid = (() => {
@@ -30,6 +31,7 @@ const makeContent = (()=>{
     const modalH = elementFactory('h1', 'modalHeader');
     const modalP = elementFactory('p', 'modalText')
     const footer = elementFactory('footer', 'footer');
+        const menuGrid = elementFactory('div', 'menuGrid');
     return{
         header,
         nav,
@@ -41,7 +43,8 @@ const makeContent = (()=>{
         btnCt,
         modal,
         modalH,
-        modalP
+        modalP,
+        menuGrid
     }
 })()
 
@@ -65,7 +68,7 @@ repudiandae perferendis quos deserunt autem fugiat,
 molestias nisi accusamus tempora.
 `
 makeContent.modalP.textContent = homeP;
-makeContent.footer.textContent = '© 2022 doctype-Melvin'
+makeContent.footer.textContent = '© 2022 doctype-Melvin';
 
 //Add eventlistener to window
 window.addEventListener('click', e => {
@@ -76,9 +79,10 @@ window.addEventListener('click', e => {
         case 'HOME': makeContent.modalH.textContent = homeH;
         makeContent.modalP.textContent = homeP;
         break;
-        //Add case 'MENU'
-
+        case 'MENU': makeContent.modalH.textContent = 'Menu';
+        makeContent.modalP.textContent = ''
+        
+        
     }
 })
 
-export {makeContent, elementFactory}
