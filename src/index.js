@@ -29,9 +29,9 @@ const makeContent = (()=>{
     const main = elementFactory('div', 'main');
     const modal = elementFactory('div', 'modal');
     const modalH = elementFactory('h1', 'modalHeader');
-    const modalP = elementFactory('p', 'modalText')
+    const modalP = elementFactory('div', 'modalText')
     const footer = elementFactory('footer', 'footer');
-        const menuGrid = elementFactory('div', 'menuGrid');
+    const footerLink = elementFactory('a', 'github')
     return{
         header,
         nav,
@@ -44,7 +44,7 @@ const makeContent = (()=>{
         modal,
         modalH,
         modalP,
-        menuGrid
+        footerLink
     }
 })()
 
@@ -75,14 +75,15 @@ window.addEventListener('click', e => {
     switch(e.target.textContent){
         case 'ABOUT': makeContent.modalH.textContent = makeAbout.aboutH;
         makeContent.modalP.textContent = makeAbout.aboutP;
+        makeContent.modalP.classList.remove('menuGrid');
         break;
         case 'HOME': makeContent.modalH.textContent = homeH;
         makeContent.modalP.textContent = homeP;
+        makeContent.modalP.classList.remove('menuGrid');
         break;
         case 'MENU': makeContent.modalH.textContent = 'Menu';
-        makeContent.modalP.textContent = ''
-        
-        
+        makeContent.modalP.textContent = '';
+        makeContent.modalP.classList.add('menuGrid');
     }
 })
 
