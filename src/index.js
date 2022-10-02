@@ -1,6 +1,6 @@
 import './style.css'
-import { makeAbout } from './about';
-import {menu} from './menu';
+import { makeAbout } from './about.js';
+import {menu} from './menu.js';
 
 //Creates the CSS grid
 const pageGrid = (() => {
@@ -79,11 +79,15 @@ window.addEventListener('click', e => {
         break;
         case 'HOME': makeContent.modalH.textContent = homeH;
         makeContent.modalP.textContent = homeP;
-        makeContent.modalP.classList.remove('menuGrid');
+        makeContent.modalP.classList.remove('menuGrid'); // Remove the grid that is used for the menu
         break;
         case 'MENU': makeContent.modalH.textContent = 'Menu';
-        makeContent.modalP.textContent = '';
         makeContent.modalP.classList.add('menuGrid');
+        let gridData = document.querySelector('.menuGrid')
+        gridData.textContent = ''
+        //menuGrid class creates four grid areas
+        //each grid area should hold a dish form
+        //the array in menu.js
     }
 })
 
